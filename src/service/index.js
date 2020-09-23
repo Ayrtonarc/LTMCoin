@@ -8,6 +8,12 @@ const { HTTP_PORT = 3000 } = process.env;
 const app = express();
 const blockchain = new Blockchain();
 
+blockchain.addBlock('express');
+
+app.get('/blocks', (req, res) => {
+    res.json(blockchain.blocks);
+});
+
 app.use(bodyParser.json());
 
 app.listen(HTTP_PORT, () => {
