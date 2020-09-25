@@ -11,11 +11,21 @@ const blockchain = new Blockchain();
 blockchain.addBlock('express');
 
 app.get('/blocks', (req, res) => {
-    res.json(blockchain.blocks);
+  res.json(blockchain.blocks);
 });
 
 app.use(bodyParser.json());
 
+app.post('/mine', (req, res) => {
+  const { body: { data } } = req;
+  const block = blockchain.addBlock(data);
+
+  res.json({
+    blocks: blockchain.blocks.length,
+    block,
+  });
+});
+
 app.listen(HTTP_PORT, () => {
-    console.log(`Service HTTP:${HTTP_PORT} listening...`);
+  console.log(`Service HTTP:${HTTP_PORT} listening...`);
 });
