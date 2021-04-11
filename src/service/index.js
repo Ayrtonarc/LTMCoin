@@ -20,13 +20,10 @@ blockchain.addBlock('express');
 
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
-=======
 app.get('/blocks', (req, res) => {
   res.json(blockchain.blocks);
 });
 
->>>>>>> 4ed424251b89b8f4d19c5ee6ee8f32aa7080b432
 app.post('/mine', (req, res) => {
   const { body: { data } } = req;
   const block = blockchain.addBlock(data);
@@ -39,8 +36,5 @@ app.post('/mine', (req, res) => {
 
 app.listen(HTTP_PORT, () => {
   console.log(`Service HTTP:${HTTP_PORT} listening...`);
-<<<<<<< HEAD
   p2pService.listen();
-=======
->>>>>>> 4ed424251b89b8f4d19c5ee6ee8f32aa7080b432
 });

@@ -5,19 +5,17 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-
     "@babel/core": "^7.12.13",
     "@babel/node": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-
     "nodemon": "^1.19.4"
   },
   "scripts": {
     "start": "babel-node ./src/service/index.js",
-    "start:2": "set HTTP_PORT=3001 && set P2P_PORT=5001 && set PEERS=ws://localhost:5000 babel-node ./src/service/index",
+    "start:2": "set HTTP_PORT=3001 && set P2P_PORT=5001 && set PEERS=ws://localhost:5000  && yarn start",
     "nodemon": "nodemon --exec yarn start",
     "lint": "eslint index.js src",
     "test": "jest",
@@ -27,10 +25,7 @@
     "body-parser": "^1.19.0",
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
-
-
     "ws": "^7.4.3"
-
   },
   "jest": {
     "silent": false,
